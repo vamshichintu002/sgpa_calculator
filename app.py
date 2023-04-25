@@ -82,7 +82,8 @@ def submit():
    except Exception as e:
     return render_template("error.html", error=error)
  
-  
+   t = threading.Thread(target=submit,)
+   t.start()
    return render_template("result.html",result=format_float)
 def conversion(g):
     grade_map = {"O": 10, "A+": 9, "A": 8, "B+": 7, "B": 6, "C": 5, "F": 0, "": 0}
